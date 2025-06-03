@@ -5,7 +5,7 @@ export class Employee extends BaseEntity {
   @PrimaryColumn()
   id: number
 
-  @PrimaryColumn()
+  @Column()
   employee_number: string
 
   @Column()
