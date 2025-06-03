@@ -6,7 +6,7 @@ export class Employee extends BaseEntity {
   id: number
 
   @PrimaryColumn()
-  noempx: string
+  employee_number: string
 
   @Column()
   name: string

@@ -18,7 +18,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Employees](
 	[Id] [int] NOT NULL,
-	[Noempx] [varchar](10) NULL,
+	[Employee_Number] [varchar](10) NULL,
 	[Name] [varchar](50) NULL,
  CONSTRAINT [pk_employees] PRIMARY KEY CLUSTERED 
 (
@@ -33,7 +33,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Contacts](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[Id_Emp] [int] NOT NULL,
+	[Id_employee] [int] NOT NULL,
 	[Name] [varchar](50) NULL,
  CONSTRAINT [pk_contacts] PRIMARY KEY CLUSTERED 
 (
@@ -43,12 +43,12 @@ CREATE TABLE [dbo].[Contacts](
 GO
 CREATE NONCLUSTERED INDEX [id_emp_idx] ON [dbo].[Contacts]
 (
-	[Id_Emp] ASC
+	[Id_employee] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90)
 GO
-ALTER TABLE [dbo].[Contacts] ADD  CONSTRAINT [contacts_df_1]  DEFAULT (0) FOR [Id_Emp]
+ALTER TABLE [dbo].[Contacts] ADD  CONSTRAINT [contacts_df_1]  DEFAULT (0) FOR [Id_employee]
 GO
-ALTER TABLE [dbo].[Contacts]  WITH NOCHECK ADD  CONSTRAINT [contacts_fk_3] FOREIGN KEY([Id_Emp])
+ALTER TABLE [dbo].[Contacts]  WITH NOCHECK ADD  CONSTRAINT [contacts_fk_3] FOREIGN KEY([Id_employee])
 REFERENCES [dbo].[Employees] ([Id])
 GO
 ALTER TABLE [dbo].[Contacts] CHECK CONSTRAINT [contacts_fk_3]

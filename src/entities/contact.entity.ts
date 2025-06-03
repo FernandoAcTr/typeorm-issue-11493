@@ -6,13 +6,13 @@ export class Contact extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number
 
-  @Column({ name: 'Id_Emp', type: 'int' })
-  id_emp: number
+  @Column({ name: 'id_employee', type: 'int' })
+  id_employee: number
 
   @Column()
   name: string
 
   @ManyToOne(() => Employee)
-  @JoinColumn({ name: 'Id_Emp' })
+  @JoinColumn({ name: 'id_employee' })
   empleado: Employee
 }

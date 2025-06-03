@@ -17,13 +17,13 @@ async function init() {
     logger.debug('Employee not found, creating a new one')
     employe = new Employee()
     employe.id = 477
-    employe.noempx = '000001'
+    employe.employee_number = '000001'
     employe.name = 'Test Employee'
     await employe.save()
   }
 
   await Contact.create({
-    id_emp: 477,
+    id_employee: 477,
     name: faker.person.firstName().toUpperCase(),
   }).save()
   logger.info('Example completed successfully!')
